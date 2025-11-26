@@ -1,0 +1,14 @@
+alias dcr="docker compose run"
+alias dcex="docker compose exec"
+alias dcu="docker compose up"
+
+
+alias gfe="git fetch"
+alias gch="git checkout"
+alias gad="git add -p"
+alias gco="git commit"
+alias gpull="gfe ; git pull origin"
+alias gpush="git push origin"
+alias gpullm="gpull master"
+
+alias ibrew='arch -x86_64 /usr/local/homebrew/bin/brew'

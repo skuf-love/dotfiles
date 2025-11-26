@@ -1,0 +1,26 @@
+function dc_full_rebuild(){
+  if [[ "${#}" -eq 0 ]]
+  then
+    echo "Service name not provided"
+    return 1
+  fi
+  
+  local SERVICE_NAME="${1}"
+  echo "Rebuilding container for ${SERVICE_NAME}"
+
+  docker-compose build --no-cache "${SERVICE_NAME}"
+  docker-compose up --force-recreate --no-deps  "${SERVICE_NAME}"
+}
+
+function dc_prune(){
+  docker container prune -f
+  docker image prune -a
+  docker builder prune
+}
+
+function gcom(){
+  local MESSAGE=$1
+  echo "Commit Message: ${MESSAGE}"
+  gco -m "${MESSAGE}"
+}
+
